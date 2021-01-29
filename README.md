@@ -17,4 +17,3 @@ công việc. Xem các thống kê về tiến độ của các việc đã và 
 
 5. Hệ thống cũng cho phép quản trị hệ thống xem các thống 
 
-![Alt text](Users/nguyenduy/Desktop/Screen Shot 2021-01-29 at 14.39.39.png?raw=true "Title")
