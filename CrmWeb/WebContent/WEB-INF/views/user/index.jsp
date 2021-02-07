@@ -72,7 +72,7 @@
 				<h3 class="mb-3">Danh sách thành viên</h3>
                 <div class="row">
                     <div class="col-md-8">
-                        <a href="user-add.html" class="btn btn-primary">Thêm mới</a>
+                        <a href="<%=request.getContextPath() %>/user/add" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="col-md-4">
                         <div class="input-group">

@@ -5,27 +5,24 @@ public class User {
 	private String email;
 	private String password;
 	private String fullname;
-	private String avatar;
 	private int roleId;
 	
 	public User() {}
 	
-	public User(String email, String password, String fullname, String avatar, int roleId) {
+	public User(String email, String password, String fullname, int roleId) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.fullname = fullname;
-		this.avatar = avatar;
 		this.roleId = roleId;
 	}
 
-	public User(int id, String email, String password, String fullname, String avatar, int roleId) {
+	public User(int id, String email, String password, String fullname, int roleId) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.fullname = fullname;
-		this.avatar = avatar;
 		this.roleId = roleId;
 	}
 
@@ -61,13 +58,6 @@ public class User {
 		this.fullname = fullname;
 	}
 
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
 
 	public int getRoleId() {
 		return roleId;

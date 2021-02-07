@@ -10,7 +10,7 @@ public class DbConnection {
 		// KẾT NỐI DB
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/crm", "root", "123456");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:6606/crm", "admin", "root");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

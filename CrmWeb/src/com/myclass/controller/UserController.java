@@ -62,7 +62,7 @@ public class UserController extends HttpServlet {
 		int roleId = Integer.valueOf(req.getParameter("roleId"));
 
 		// B2. TẠO ĐỐI TƯỢNG DTO
-		UserDto userDto = new UserDto(email, pass, fullname, avatar, roleId);
+		UserDto userDto = new UserDto(email, pass, fullname, roleId);
 
 		// B3. GỌI HÀM XỬ LÝ LOGIC THÊM MỚI
 		if (userService.insert(userDto) == -1) {

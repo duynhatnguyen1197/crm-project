@@ -17,3 +17,5 @@ công việc. Xem các thống kê về tiến độ của các việc đã và 
 
 5. Hệ thống cũng cho phép quản trị hệ thống xem các thống 
 
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)

@@ -27,17 +27,17 @@ public class AuthService {
 		// BCrypt.checkpw(mật khẩu form, mật khẩu db) => true/false
 		// TH1: Mật khẩu không khớp => Xuất thông báo cho người dùng
 		// TH2: Mật khẩu chính xác => Chuyển qua bước 4
-		if(!BCrypt.checkpw(password, user.getPassword())) {
-			return null;
-		}
-		UserDto dto = new UserDto(
-				user.getId(),
-				user.getEmail(),
-				user.getPassword(),
-				user.getFullname(),
-				user.getAvatar(),
-				user.getRoleId()
-			);
+		
+		if(BCrypt.checkpw(password, user.getPassword())) {
+		UserDto dto = new UserDto();
+		
+		dto.setId(user.getId());
+		dto.setEmail(user.getEmail());
+		dto.setPassword(user.getPassword());
+		dto.setFullname(user.getFullname());
+		dto.setRoleId(user.getRoleId());
 		return dto;
+		}
+		return null;
 	}
 }

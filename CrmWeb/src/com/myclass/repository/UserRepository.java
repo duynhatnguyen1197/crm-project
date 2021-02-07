@@ -27,7 +27,6 @@ public class UserRepository {
 				dto.setEmail(resultSet.getString("email"));
 				dto.setPassword(resultSet.getString("password"));
 				dto.setFullname(resultSet.getString("fullname"));
-				dto.setAvatar(resultSet.getString("avatar"));
 				dto.setRoleId(resultSet.getInt("role_id"));
 				dto.setRoleDesc(resultSet.getString("description"));
 				userDtos.add(dto);
@@ -53,7 +52,6 @@ public class UserRepository {
 				entity.setEmail(resultSet.getString("email"));
 				entity.setPassword(resultSet.getString("password"));
 				entity.setFullname(resultSet.getString("fullname"));
-				entity.setAvatar(resultSet.getString("avatar"));
 				entity.setRoleId(resultSet.getInt("role_id"));
 				users.add(entity);
 			}
@@ -80,7 +78,6 @@ public class UserRepository {
 				entity.setEmail(resultSet.getString("email"));
 				entity.setPassword(resultSet.getString("password"));
 				entity.setFullname(resultSet.getString("fullname"));
-				entity.setAvatar(resultSet.getString("avatar"));
 				entity.setRoleId(resultSet.getInt("role_id"));
 				break;
 			}
@@ -92,15 +89,14 @@ public class UserRepository {
 	}
 
 	public int save(User entity) {
-		String query = "INSERT INTO users(email, password, fullname, avatar, user_id) VALUES (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO users(email, password, fullname, role_id) VALUES (?, ?, ?, ?)";
 		Connection conn = DbConnection.getConnection();
 		try {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, entity.getEmail());
 			statement.setString(2, entity.getPassword());
 			statement.setString(3, entity.getFullname());
-			statement.setString(4, entity.getAvatar());
-			statement.setInt(5, entity.getRoleId());
+			statement.setInt(4, entity.getRoleId());
 			// Thực thi câu lệnh truy vấn
 			return statement.executeUpdate();
 
@@ -111,14 +107,13 @@ public class UserRepository {
 	}
 
 	public int edit(User entity) {
-		String query = "UPDATE users SET email = ?, password = ?, fullname = ?, avatar = ?, user_id = ? WHERE id  = ?";
+		String query = "UPDATE users SET email = ?, password = ?, fullname = ?, user_id = ? WHERE id  = ?";
 		Connection conn = DbConnection.getConnection();
 		try {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, entity.getEmail());
 			statement.setString(2, entity.getPassword());
 			statement.setString(3, entity.getFullname());
-			statement.setString(4, entity.getAvatar());
 			statement.setInt(5, entity.getRoleId());
 			statement.setInt(6, entity.getId());
 			// Thực thi câu lệnh truy vấn
@@ -147,7 +142,6 @@ public class UserRepository {
 				entity.setEmail(resultSet.getString("email"));
 				entity.setPassword(resultSet.getString("password"));
 				entity.setFullname(resultSet.getString("fullname"));
-				entity.setAvatar(resultSet.getString("avatar"));
 				entity.setRoleId(resultSet.getInt("role_id"));
 				break;
 			}

@@ -24,7 +24,7 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="index.jsp">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>

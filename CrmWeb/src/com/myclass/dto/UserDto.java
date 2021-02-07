@@ -11,22 +11,19 @@ public class UserDto {
 	
 	public UserDto() {}
 	
-	public UserDto(String email, String password, String fullname, String avatar, int roleId) {
+	public UserDto(String email, String password, String fullname, int roleId) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.fullname = fullname;
-		this.avatar = avatar;
 		this.roleId = roleId;
 	}
 
-	public UserDto(int id, String email, String password, String fullname, String avatar, int roleId) {
-		super();
+	public UserDto(int id, String email, String password, String fullname, int roleId) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.fullname = fullname;
-		this.avatar = avatar;
 		this.roleId = roleId;
 	}
 

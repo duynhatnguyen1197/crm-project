@@ -58,7 +58,6 @@ public class UserService {
 			dto.setEmail(entity.getEmail());
 			dto.setPassword(entity.getPassword());
 			dto.setFullname(entity.getFullname());
-			dto.setAvatar(entity.getAvatar());
 			dto.setRoleId(entity.getRoleId());
 		}
 		// Trả về dto
@@ -70,7 +69,7 @@ public class UserService {
 		try {
 			String hashed = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
 			// B1. THAM CHIẾU DTO -> ENTITY
-			User entity = new User(userDto.getEmail(), hashed, userDto.getFullname(), userDto.getAvatar(),
+			User entity = new User(userDto.getEmail(), hashed, userDto.getFullname(),
 					userDto.getRoleId());
 //			//B2. GỌI HÀM TRUY VẤN THÊM MỚI USER
 			return userRepository.save(entity);
@@ -89,7 +88,6 @@ public class UserService {
 				entity.setId(userDto.getId());
 				entity.setEmail(userDto.getEmail());
 				entity.setFullname(userDto.getFullname());
-				entity.setAvatar(userDto.getAvatar());
 				entity.setRoleId(userDto.getRoleId());
 				// NẾU PASS ĐƯỢC NHẬP => THAY ĐỔI PASS
 				if(!userDto.getPassword().isEmpty()) {

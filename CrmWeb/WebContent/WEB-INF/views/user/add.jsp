@@ -98,10 +98,6 @@
                                     </c:forEach>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Avatar</label>
-                                <input type="text" name="avatar" class="form-control" placeholder="avatar" />
-                            </div>
                         </div>
                         <div class="col-12 mt-3">
                             <button type="submit" class="btn btn-success">Lưu lại</button>
