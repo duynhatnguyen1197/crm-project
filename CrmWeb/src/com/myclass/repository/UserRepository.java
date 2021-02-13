@@ -107,15 +107,15 @@ public class UserRepository {
 	}
 
 	public int edit(User entity) {
-		String query = "UPDATE users SET email = ?, password = ?, fullname = ?, user_id = ? WHERE id  = ?";
+		String query = "UPDATE users SET email = ?, password = ?, fullname = ?, role_id = ? WHERE id  = ?";
 		Connection conn = DbConnection.getConnection();
 		try {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, entity.getEmail());
 			statement.setString(2, entity.getPassword());
 			statement.setString(3, entity.getFullname());
-			statement.setInt(5, entity.getRoleId());
-			statement.setInt(6, entity.getId());
+			statement.setInt(4, entity.getRoleId());
+			statement.setInt(5, entity.getId());
 			// Thực thi câu lệnh truy vấn
 			return statement.executeUpdate();
 
@@ -151,4 +151,19 @@ public class UserRepository {
 		}
 		return entity;
 	}
+
+	public void deleteById(int id) {
+		String query = "DELETE FROM users WHERE id = ?";
+		String removeId = String.valueOf(id) ;
+		Connection conn = DbConnection.getConnection();
+		try {
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1,removeId);
+			statement.executeUpdate(); 
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	
 }

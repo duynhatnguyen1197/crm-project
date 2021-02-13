@@ -25,12 +25,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="<%=request.getContextPath() %>/user">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="role-list.html">
+                    <a href="<%=request.getContextPath() %>/role">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -73,10 +73,10 @@
             <!-- CONTENT -->
             <section id="admin-content" class="p-3">
                 <h3 class="mb-4">Cập nhật thành viên</h3>
-                <form method="post" action="<%= request.getContextPath() %>/user/add">
+                <form method="post" action="<%= request.getContextPath() %>/user">
                     <div class="row">
                         <div class="col-md-6">
-                        	<input type="hidden" value="${ user.id }" name="email"/>
+                        	<input type="text" value="${ user.id }" name="id" readonly/>
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="text" value="${ user.email }" name="email" class="form-control"/>
@@ -99,14 +99,10 @@
                                     </c:forEach>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Avatar</label>
-                                <input type="text" value="${ user.avatar }" name="avatar" class="form-control" />
-                            </div>
                         </div>
                         <div class="col-12 mt-3">
                             <button type="submit" class="btn btn-success">Lưu lại</button>
-                            <a class="btn btn-secondary" href="user-list.html">Quay lại</a>
+                            <a class="btn btn-secondary" href="<%=request.getContextPath()%>/user">Quay lại</a>
                         </div>
                     </div>
                 </form>

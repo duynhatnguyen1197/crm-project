@@ -97,10 +97,31 @@ public class UserService {
 			}
 			
 			// B2. GỌI HÀM TRUY VẤN CẬP NHẬT USER
+			System.out.println(userRepository.edit(entity));
 			return userRepository.edit(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	public UserDto getByEmail(String email) {
+		UserDto dto = new UserDto();
+		// Gọi hàm truy vấn lấy dữ liệu
+		User entity = userRepository.findByEmail(email); // findAll trả về List<User>
+		// Tham chiếu dữ liệu từ entity -> Dto
+		if (entity != null) {
+			dto.setId(entity.getId());
+			dto.setEmail(entity.getEmail());
+			dto.setPassword(entity.getPassword());
+			dto.setFullname(entity.getFullname());
+			dto.setRoleId(entity.getRoleId());
+		}
+		// Trả về dto
+		return dto;
+	}
+	
+	public void delete(int id) {
+		userRepository.deleteById(id);	
 	}
 }

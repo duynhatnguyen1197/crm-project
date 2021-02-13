@@ -28,10 +28,10 @@
 			<div class="logo">ADMIN PAGE</div>
 			<ul class="list-group rounded-0">
 				<li class="dashboard">DASHBOARD</li>
-				<li><a href="user-list.html"> <i class="fa fa-user mr-2"></i>
+				<li><a href="<%=request.getContextPath() %>/user"> <i class="fa fa-user mr-2"></i>
 						Quản lý thành viên
 				</a></li>
-				<li><a href="role-list.html"> <i class="fa fa-book mr-2"></i>
+				<li><a href="<%=request.getContextPath() %>/role"> <i class="fa fa-book mr-2"></i>
 						Quản lý quyền
 				</a></li>
 				<li><a href="#"> <i class="fa fa-cogs mr-2"></i> Cấu hình
@@ -97,8 +97,8 @@
                     	<c:forEach items="${ users }" var="item">
                         <tr>
                             <td>${ item.id }</td>
-                            <td>${ item.email }</td>
                             <td>${ item.fullname }</td>
+                            <td>${ item.email }</td>
                             <%-- <td>
                             	<c:forEach items="${ roles }" var="role">
                             		<c:if test="${ item.roleId == role.id }">${ role.desc }</c:if>
@@ -109,7 +109,7 @@
                                 <a href="<%=request.getContextPath()%>/user/edit?id=${item.id}" class="btn btn-sm btn-info">
                                     <i class="fa fa-pencil-square-o"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-danger">
+                                <a href="<%=request.getContextPath()%>/user/delete?id=${item.id}" class="btn btn-sm btn-danger">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
                             </td>

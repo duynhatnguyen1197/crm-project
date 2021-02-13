@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.myclass.dto.RoleDto;
 import com.myclass.dto.UserDto;
 import com.myclass.entity.Role;
@@ -17,7 +19,7 @@ import com.myclass.repository.RoleRepository;
 import com.myclass.service.RoleService;
 import com.myclass.service.UserService;
 
-@WebServlet(urlPatterns = { "/user", "/user/add", "/user/edit" })
+@WebServlet(urlPatterns = { "/user", "/user/add", "/user/edit","/user/delete" })
 public class UserController extends HttpServlet {
 
 	private RoleService roleService;
@@ -47,6 +49,11 @@ public class UserController extends HttpServlet {
 			req.setAttribute("roles", roleService.getAll());
 			req.getRequestDispatcher("/WEB-INF/views/user/edit.jsp").forward(req, resp);
 			break;
+			
+		case "/user/delete":
+			userService.delete(Integer.parseInt(req.getParameter("id")));
+			req.setAttribute("users", userService.getAll());
+			req.getRequestDispatcher("/WEB-INF/views/user/index.jsp").forward(req, resp);
 		default:
 			break;
 		}
@@ -54,22 +61,44 @@ public class UserController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// B1. LẤY THÔNG TIN FORM
+		String action = req.getServletPath();
 		String email = req.getParameter("email");
+		
 		String pass = req.getParameter("password");
 		String fullname = req.getParameter("fullname");
-		String avatar = req.getParameter("avatar");
+		
 		int roleId = Integer.valueOf(req.getParameter("roleId"));
-
+		
+		int id = userService.getByEmail(email).getId();
+		
+		
 		// B2. TẠO ĐỐI TƯỢNG DTO
-		UserDto userDto = new UserDto(email, pass, fullname, roleId);
-
-		// B3. GỌI HÀM XỬ LÝ LOGIC THÊM MỚI
-		if (userService.insert(userDto) == -1) {
-			req.setAttribute("message", "Thêm mới thất bại!");
-			req.getRequestDispatcher("/WEB-INF/views/user/add.jsp").forward(req, resp);
-		} else {
-			resp.sendRedirect(req.getContextPath() + "/user");
+		
+		switch(action) {
+		case "/user/edit":
+			UserDto userDto = new UserDto(id,email, pass, fullname, roleId);
+					// B3. GỌI HÀM XỬ LÝ LOGIC THÊM MỚI
+			if (userService.update(userDto) == -1) {
+				req.setAttribute("message", "Sửa đổi thất bại!");
+				req.getRequestDispatcher("/WEB-INF/views/user/edit.jsp").forward(req, resp);
+			} else {
+				resp.sendRedirect(req.getContextPath() + "/user");
+			}
+				break;
+		
+		case "/user/add":
+			
+			UserDto userAdd = new UserDto(email,pass,fullname,roleId);
+			if(userService.insert(userAdd)== -1 ) {
+				req.setAttribute("message", "Thêm mới thất bại");
+				req.getRequestDispatcher("WEB-INF/views/user/add.jsp").forward(req, resp);
+			} else {
+				resp.sendRedirect(req.getContextPath()+ "/user");
+			}
 		}
-	}
+		
+		
+	
+					
+}
 }

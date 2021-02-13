@@ -24,12 +24,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="<%=request.getContextPath() %>/user">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="role-list.html">
+                    <a href="<%=request.getContextPath() %>/role">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -73,7 +73,7 @@
             <section id="admin-content" class="p-3">
                 <h3 class="mb-4 text-center">Thêm mới quyền</h3>
                 <p class="text-center text-danger">${ message }</p>
-                <form method="post" action="<%= request.getContextPath() %>/role/add">
+                <form method="POST" action="<%= request.getContextPath() %>/role/add">
                     <div class="row">
                         <div class="col-md-6 m-auto">
                             <div class="form-group">

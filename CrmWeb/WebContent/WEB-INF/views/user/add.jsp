@@ -25,12 +25,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="<%=request.getContextPath() %>/user">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="role-list.html">
+                    <a href="<%=request.getContextPath() %>/role">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-12 mt-3">
                             <button type="submit" class="btn btn-success">Lưu lại</button>
-                            <a class="btn btn-secondary" href="user-list.html">Quay lại</a>
+                            <a class="btn btn-secondary" href="<%=request.getContextPath()%>/user">Quay lại</a>
                         </div>
                     </div>
                 </form>

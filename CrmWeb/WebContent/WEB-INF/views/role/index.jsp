@@ -25,12 +25,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="<%=request.getContextPath() %>/user">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="role-list.html">
+                    <a href="<%=request.getContextPath() %>/role">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -75,7 +75,7 @@
                 <h3 class="mb-3">Danh sách quyền</h3>
                 <div class="row">
                     <div class="col-md-8">
-                        <a href="role-add.html" class="btn btn-primary">Thêm mới</a>
+                        <a href="<%=request.getContextPath()%>/role/add" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="col-md-4">
                         <div class="input-group">
