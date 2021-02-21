@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <%@page import="cycbersoft.java10.util.Path"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -25,12 +26,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/user">
+                    <a href="<c:url value="<%=Path.USER %>" />">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/role">
+                    <a href="<c:url value="<%=Path.ROLE %>" />">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -58,12 +59,12 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdownId"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ${ USER_LOGIN.fullname }
+                                Cybersoft
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="">Thông tin cá nhân</a>
                                 <a class="dropdown-item" href="#">Cài đặt</a>
-                                <a class="dropdown-item" href="<%= request.getContextPath() %>/logout">Thoát</a>
+                                <a class="dropdown-item" href="<c:url value="<%=Path.LOGIN %>" />">Thoát</a>
                             </div>
                         </li>
                     </ul>
@@ -75,7 +76,7 @@
                 <h3 class="mb-3">Danh sách quyền</h3>
                 <div class="row">
                     <div class="col-md-8">
-                        <a href="<%=request.getContextPath()%>/role/add" class="btn btn-primary">Thêm mới</a>
+                        <a href="<c:url value="<%=Path.ROLE_ADD %>" />" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="col-md-4">
                         <div class="input-group">
@@ -96,21 +97,48 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	<c:forEach items="${ listRole }" var="item">
-	                        <tr>
-	                            <td>${ item.id }</td>
-	                            <td>${ item.name }</td>
-	                            <td>${ item.desc }</td>
-	                            <td>
-	                                <a href="<%= request.getContextPath() %>/role/edit?id=${item.id}" class="btn btn-sm btn-info">
-	                                    <i class="fa fa-pencil-square-o"></i>
-	                                </a>
-	                                <a href="#" class="btn btn-sm btn-danger">
-	                                    <i class="fa fa-trash-o"></i>
-	                                </a>
-	                            </td>
-	                        </tr>
-                        </c:forEach>
+                    <c:forEach items ="${ listRole }" var ="item">
+                     	<tr>
+                            <td>${ item.id }</td>
+                            <td>${ item.name }</td>
+                            <td>${ item.description }</td>
+                            <td>
+                                <a href="<c:url value="<%=Path.ROLE_EDIT %>" />?id=${item.id}" class="btn btn-sm btn-info">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a href="<c:url value="<%=Path.ROLE_DELETE %>" />?id=${item.id}" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                       
+<!--                         <tr> -->
+<!--                             <td>2</td> -->
+<!--                             <td>ROLE_TEACHER</td> -->
+<!--                             <td>Giảng viên</td> -->
+<!--                             <td> -->
+<!--                                 <a href="role-edit.html" class="btn btn-sm btn-info"> -->
+<!--                                     <i class="fa fa-pencil-square-o"></i> -->
+<!--                                 </a> -->
+<!--                                 <a href="#" class="btn btn-sm btn-danger"> -->
+<!--                                     <i class="fa fa-trash-o"></i> -->
+<!--                                 </a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td>3</td> -->
+<!--                             <td>ROLE_STUDENT</td> -->
+<!--                             <td>Học viên viên</td> -->
+<!--                             <td> -->
+<!--                                 <a href="role-edit.html" class="btn btn-sm btn-info"> -->
+<!--                                     <i class="fa fa-pencil-square-o"></i> -->
+<!--                                 </a> -->
+<!--                                 <a href="#" class="btn btn-sm btn-danger"> -->
+<!--                                     <i class="fa fa-trash-o"></i> -->
+<!--                                 </a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
                     </tbody>
                 </table>
             </section>

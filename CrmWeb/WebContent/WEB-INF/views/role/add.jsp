@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="cycbersoft.java10.util.Path"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -24,12 +26,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/user">
+                    <a href="<c:url value="<%=Path.USER %>" />">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/role">
+                    <a href="<c:url value="<%=Path.ROLE %>" />">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -62,7 +64,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="">Thông tin cá nhân</a>
                                 <a class="dropdown-item" href="#">Cài đặt</a>
-                                <a class="dropdown-item" href="#">Thoát</a>
+                                <a class="dropdown-item" href="<c:url value="<%=Path.LOGIN %>" />">Thoát</a>
                             </div>
                         </li>
                     </ul>
@@ -72,21 +74,21 @@
             <!-- CONTENT -->
             <section id="admin-content" class="p-3">
                 <h3 class="mb-4 text-center">Thêm mới quyền</h3>
-                <p class="text-center text-danger">${ message }</p>
-                <form method="POST" action="<%= request.getContextPath() %>/role/add">
+                <p>${message }</p>
+                <form method="post" action="<c:url value="<%=Path.ROLE_ADD %>" />">
                     <div class="row">
                         <div class="col-md-6 m-auto">
                             <div class="form-group">
                                 <label>Tên quyền</label>
-                                <input type="text" name="name" class="form-control"/>
+                                <input type="text" name="name" class="form-control" placeholder="name" />
                             </div>
                             <div class="form-group">
                                 <label>Mô tả</label>
-                                <input type="text" name="desc" class="form-control"/>
+                                <input type="text" name="desc" class="form-control" placeholder="description" />
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Lưu lại</button>
-                                <a class="btn btn-secondary" href="role-list.html">Quay lại</a>
+                                <a class="btn btn-secondary" href="<c:url value="<%=Path.ROLE %>" />">Quay lại</a>
                             </div>
                         </div>
                     </div>

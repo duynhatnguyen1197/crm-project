@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@page import="cycbersoft.java10.util.Path"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -25,12 +26,12 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/user">
+                    <a href="<c:url value="<%=Path.USER %>" />">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="<%=request.getContextPath() %>/role">
+                    <a href="<c:url value="<%=Path.ROLE %>" />">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
@@ -63,7 +64,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="">Thông tin cá nhân</a>
                                 <a class="dropdown-item" href="#">Cài đặt</a>
-                                <a class="dropdown-item" href="#">Thoát</a>
+                                <a class="dropdown-item" href="<c:url value="<%=Path.LOGIN %>" />">Thoát</a>
                             </div>
                         </li>
                     </ul>
@@ -73,7 +74,7 @@
             <!-- CONTENT -->
             <section id="admin-content" class="p-3">
                 <h3 class="mb-4">Thêm mới thành viên</h3>
-                <form method="post" action="<%= request.getContextPath() %>/user/add">
+                <form method="post" action="<c:url value="<%=Path.USER_ADD %>" />">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -89,19 +90,33 @@
                                 <input type="text" name="fullname" class="form-control" placeholder="fullname" />
                             </div>
                         </div>
+                       
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Loại người dùng</label>
-                                <select class="form-control" name="roleId">
-                                	<c:forEach items="${ roles }" var="item">
-                                    	<option value="${ item.id }">${ item.desc }</option>
-                                    </c:forEach>
-                                </select>
+                                <select class="form-control" name="role_id">
+                                 
+                                 <c:forEach items ="${ roles }" var ="item">
+                               <option value="${ item.id }"
+											${ user.role_id== item.id ? 'selected' : '' }>${ item.description }</option>
+                                 
+                                 
+                                 </c:forEach>
+                                 </select>
+<!--                                 -->
+<!--                                     <option value="1">Quản trị</option> -->
+<!--                                     <option value="2">Quản lý </option> -->
+<!--                                     <option value="3">Nhân viên</option> -->
+<!--                                  -->
+                            </div>
+                            <div class="form-group">
+                                <label>Avatar</label>
+                                <input type="text" name="avatar" class="form-control" placeholder="avatar" />
                             </div>
                         </div>
                         <div class="col-12 mt-3">
                             <button type="submit" class="btn btn-success">Lưu lại</button>
-                            <a class="btn btn-secondary" href="<%=request.getContextPath()%>/user">Quay lại</a>
+                            <a class="btn btn-secondary" href="<c:url value="<%=Path.USER %>" />">Quay lại</a>
                         </div>
                     </div>
                 </form>
