@@ -34,6 +34,11 @@
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
+                    <li>
+                    <a href="<%=request.getContextPath()%>/project">
+                        <i class="fa fa-slack mr-2"></i> Quản lý dự án
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs mr-2"></i> Cấu hình hệ thống
@@ -89,7 +94,7 @@
                 <table class="table table-bordered table-hover mt-3">
                     <thead>
                         <tr>
-                            <th>STT</th>
+                            <th>ID</th>
                             <th>Tên Quyền</th>
                             <th>Mô Tả</th>
                             <th>#</th>
@@ -105,7 +110,7 @@
 	                                <a href="<%= request.getContextPath() %>/role/edit?id=${item.id}" class="btn btn-sm btn-info">
 	                                    <i class="fa fa-pencil-square-o"></i>
 	                                </a>
-	                                <a href="#" class="btn btn-sm btn-danger">
+	                                <a href="<%= request.getContextPath()%>/role/delete?id=${item.id}" class="btn btn-sm btn-danger">
 	                                    <i class="fa fa-trash-o"></i>
 	                                </a>
 	                            </td>

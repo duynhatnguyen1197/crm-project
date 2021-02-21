@@ -24,13 +24,18 @@
             <ul class="list-group rounded-0">
                 <li class="dashboard">DASHBOARD</li>
                 <li>
-                    <a href="user-list.html">
+                    <a href="<%=request.getContextPath()%>/user">
                         <i class="fa fa-user mr-2"></i> Quản lý thành viên
                     </a>
                 </li>
                 <li>
-                    <a href="role-list.html">
+                    <a href="<%=request.getContextPath()%>/role">
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
+                    </a>
+                </li>
+                    <li>
+                    <a href="<%=request.getContextPath()%>/project">
+                        <i class="fa fa-slack mr-2"></i> Quản lý dự án
                     </a>
                 </li>
                 <li>

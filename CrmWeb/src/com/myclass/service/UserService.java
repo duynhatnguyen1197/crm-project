@@ -80,7 +80,7 @@ public class UserService {
 	}
 
 	public int update(UserDto userDto) {
-
+	
 		try {
 			// B1. THAM CHIẾU DTO -> ENTITY
 			User entity = userRepository.findById(userDto.getId());
@@ -97,7 +97,6 @@ public class UserService {
 			}
 			
 			// B2. GỌI HÀM TRUY VẤN CẬP NHẬT USER
-			System.out.println(userRepository.edit(entity));
 			return userRepository.edit(entity);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -34,6 +34,11 @@
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
+                    <li>
+                    <a href="<%=request.getContextPath()%>/project">
+                        <i class="fa fa-slack mr-2"></i> Quản lý dự án
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs mr-2"></i> Cấu hình hệ thống
@@ -73,7 +78,7 @@
             <!-- CONTENT -->
             <section id="admin-content" class="p-3">
                 <h3 class="mb-4">Thêm mới thành viên</h3>
-                <form method="post" action="<%= request.getContextPath() %>/user/add">
+               <form method="post" action="<%= request.getContextPath() %>/user/add">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

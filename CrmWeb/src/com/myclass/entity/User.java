@@ -10,7 +10,6 @@ public class User {
 	public User() {}
 	
 	public User(String email, String password, String fullname, int roleId) {
-		super();
 		this.email = email;
 		this.password = password;
 		this.fullname = fullname;
@@ -18,7 +17,6 @@ public class User {
 	}
 
 	public User(int id, String email, String password, String fullname, int roleId) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;

@@ -61,4 +61,7 @@ public class RoleService {
 		}
 		return -1;
 	}
+	public void delete(int id ) {
+		roleRepository.deleteById(id);
+	}
 }

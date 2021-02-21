@@ -35,24 +35,20 @@ public class RoleController extends HttpServlet {
 			break;
 		case "/role/edit":
 			// B1: LẤY id TỪ URL
-			int id = Integer.valueOf(req.getParameter("id"));
+			int idEdit = Integer.valueOf(req.getParameter("id"));
 
 			// B2: GỌI HÀM XỬ LÝ LOGIC CỦA TẦNG SERVICE
-			RoleDto dto = roleService.getById(id); // Hàm trả v�? đối tượng Role
+			RoleDto dto = roleService.getById(idEdit); // Hàm trả v�? đối tượng Role
 
 			// B3: CHUYỂN TIẾP DỮ LIỆU LẤY �?ƯỢC QUA TRANG edit.jsp
 			req.setAttribute("role", dto);
 			req.getRequestDispatcher("/WEB-INF/views/role/edit.jsp").forward(req, resp);
 			break;
-//		case "/role/delete":
-//			// B1: LẤY id TỪ URL
-//			
-//			// B2: GỌI HÀM TRUY VẤN XÓA
-//			
-//			// B3: KIỂM TRA
-//				// THẤT BẠI: CHUYỂN TIẾP VỀ TRANG index.jsp => Xuất thông báo
-//				// THÀNH CÔNG: CHUYỂN HƯỚNG VỀ TRANG DANH S�?CH
-//			break;
+		case "/role/delete":
+			int idDel = Integer.valueOf(req.getParameter("id"));
+			roleService.delete(idDel);
+			resp.sendRedirect(req.getContextPath()+"/role");
+			break;
 		default:
 			break;
 		}

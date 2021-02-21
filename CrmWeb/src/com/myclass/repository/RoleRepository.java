@@ -94,4 +94,16 @@ public class RoleRepository {
 		}
 		return entity;
 	}
+	public void deleteById(int id ) {
+		String query =  "DELETE FROM roles WHERE id = ?";
+		String removeId = String.valueOf(id);
+		Connection conn = DbConnection.getConnection();
+		try {
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, removeId);
+			statement.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
