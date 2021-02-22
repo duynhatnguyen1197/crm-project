@@ -1,14 +1,13 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="cycbersoft.java10.util.Path"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <title>Trang chủ</title>
+    <title>Thêm mới dự án</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,7 +36,7 @@
                     </a>
                 </li>
                  <li>
-                    <a href="<%=request.getContextPath()%>/project">
+                    <a href="<c:url value="<%=Path.PROJECT %>" />">
                         <i class="fa fa-slack mr-2"></i> Quản lý dự án
                     </a>
                 </li>
@@ -77,25 +76,62 @@
                 </div>
             </nav>
 
-            <!-- CONTENT -->
+           <!-- CONTENT -->
             <section id="admin-content" class="p-3">
-                <div class="row">
-                    <div class="col-md-6">
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                <h3 class="mb-4">Sửa thông tin dự án </h3>
+<%--                 <form method="post" action="<c:url value="<%=Path.USER_ADD %>" />"> --%>
+                <form method="post" action="#">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" value="${ project.name }" class="form-control" placeholder="name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả</label>
+                                <input type="text" name="description" value="${ project.description }" class="form-control" placeholder="description" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày bắt đầu</label>
+                                <input type="date" name="startdate" value="${ project.startDate }" class="form-control" placeholder="start-date" />
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-6">
+                       		 <div class="form-group">
+                                <label>Ngày kết thúc</label>
+                                <input type="date" name="enddate" value="${ project.endDate }" class="form-control" placeholder="end-date" />
+                            </div>
+                            <div class="form-group">
+                                <label>Người thực hiện</label>
+                                <select class="form-control" name="createUser">
+                                 
+                                 <c:forEach items ="${ users }" var ="item">
+                               <option value="${ item.id }"
+											${ project.createUser== item.id ? 'selected' : '' }>${ item.fullname }</option>
+                                 
+                                 </c:forEach>
+                                 </select>
+<!--                                 -->
+<!--                                     <option value="1">Quản trị</option> -->
+<!--                                     <option value="2">Quản lý </option> -->
+<!--                                     <option value="3">Nhân viên</option> -->
+<!--                                  -->
+                            </div>
+                            
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-success">Lưu lại</button>
+                            <a class="btn btn-secondary" href="<c:url value="<%=Path.PROJECT %>" />">Quay lại</a>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <canvas id="myChart2" width="400" height="400"></canvas>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
+                </form>
             </section>
         </div>
     </div>
     <script src="<%= request.getContextPath() %>/static/js/jquery.slim.min.js"></script>
     <script src="<%= request.getContextPath() %>/static/js/popper.min.js"></script>
     <script src="<%= request.getContextPath() %>/static/js/bootstrap.min.js"></script>
-    <script src='<%= request.getContextPath() %>/static/js/chart.min.js'></script>
-    <script src='<%= request.getContextPath() %>/static/js/custom-chart.js'></script>
 </body>
 
 </html>

@@ -36,6 +36,11 @@
                         <i class="fa fa-book mr-2"></i> Quản lý quyền
                     </a>
                 </li>
+                   <li>
+                    <a href="<c:url value="<%=Path.PROJECT %>" />">
+                        <i class="fa fa-slack mr-2"></i> Quản lý dự án
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs mr-2"></i> Cấu hình hệ thống

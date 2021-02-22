@@ -13,6 +13,10 @@ public class Url {
 	public static final String USER_ADD = "/WEB-INF/views/user/add.jsp";
 	public static final String USER_EDIT = "/WEB-INF/views/user/edit.jsp";
 	public static final String USER_INDEX = "/WEB-INF/views/user/index.jsp";
+	// project
+	public static final String PROJECT_ADD = "/WEB-INF/views/project/add.jsp";
+	public static final String PROJECT_EDIT = "/WEB-INF/views/project/edit.jsp";
+	public static final String PROJECT_INDEX = "/WEB-INF/views/project/index.jsp";
 	// error
 	public static final String ERROR_403 = "/WEB-INF/views/error/403.jsp";
 	public static final String ERROR_404 = "/WEB-INF/views/error/404.jsp";

@@ -21,7 +21,13 @@ public class Path {
 	public static final String USER_EDIT = "/user/edit";
 	public static final String USER_DELETE = "/user/delete";
 	
+	// project
+	public static final String PROJECT = "/project";
+	public static final String PROJECT_ADD = "/project/add";
+	public static final String PROJECT_EDIT = "/project/edit";
+	public static final String PROJECT_DELETE = "/project/delete";
 	//error
 	public static final String ERROR_403 = "/403";
 	public static final String ERROR_404 = "/404";
+	
 }
