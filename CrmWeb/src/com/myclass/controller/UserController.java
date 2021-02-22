@@ -55,14 +55,21 @@ public class UserController extends HttpServlet {
 				req.getRequestDispatcher("/WEB-INF/views/user/edit.jsp").forward(req, resp);
 			}
 			else {
-				resp.sendRedirect(req.getContextPath() +"/home");
+				resp.sendRedirect(req.getContextPath() +"/error/403");
 			}
 			break;
 			
 		case "/user/delete":
+			session = req.getSession();
+			dto = (UserDto) session.getAttribute("USER_LOGIN");
+			if(dto.getRoleId()==1) {
 			userService.delete(Integer.parseInt(req.getParameter("id")));
 			req.setAttribute("users", userService.getAll());
 			req.getRequestDispatcher("/WEB-INF/views/user/index.jsp").forward(req, resp);
+			} else {
+				resp.sendRedirect(req.getContextPath() +"/error/403");
+			}
+			
 		default:
 			break;
 		}

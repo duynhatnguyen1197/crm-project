@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.myclass.dto.UserDto;
 
-@WebFilter(urlPatterns = {"/user/add" ,"/role"})
+@WebFilter(urlPatterns = {"/user/add" ,"/role","/role/delete"})
 public class RoleFilter implements Filter {
 	
 	@Override
@@ -34,7 +34,7 @@ public class RoleFilter implements Filter {
 			chain.doFilter(req, resp);
 		}
 		else {	
-			resp.sendRedirect(req.getContextPath()+"/home");
+			resp.sendRedirect(req.getContextPath()+"/error/403");
 		}
 		
 	}

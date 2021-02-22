@@ -68,7 +68,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="">Thông tin cá nhân</a>
                                 <a class="dropdown-item" href="#">Cài đặt</a>
-                                <a class="dropdown-item" href="#">Thoát</a>
+                                <a class="dropdown-item" href="<%=request.getContextPath()%>/logout">Thoát</a>
                             </div>
                         </li>
                     </ul>
