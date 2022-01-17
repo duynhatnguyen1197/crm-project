@@ -15,7 +15,6 @@ import com.myclass.repository.UserRepository;
 
 public class UserService {
 
-//test
 	private UserRepository userRepository;
 	private RoleRepository roleRepository;
 
